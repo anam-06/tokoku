@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use Closure;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class KartuProduk extends Component
@@ -13,7 +15,7 @@ class KartuProduk extends Component
         $this->produk = $produk;
     }
 
-    public function render()
+    public function render(): View|Closure|string
     {
         return view('components.kartu-produk');
     }

@@ -4,12 +4,11 @@
 
 @section('konten')
 
-<h2>Daftar Produk</h2>
 
-@foreach($produks as $p)
+<h1>Daftar Produk</h1>
 
+@foreach ($produk as $p)
     <x-kartu-produk :produk="$p" />
-
 @endforeach
 
 @endsection
