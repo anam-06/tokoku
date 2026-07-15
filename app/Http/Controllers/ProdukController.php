@@ -16,6 +16,13 @@ class ProdukController extends Controller
 
     public function show($id)
     {
-        return view('produk.show', ['id' => $id]);
+        $produk = collect(ProdukData::semua())
+            ->firstWhere('id', $id);
+
+        if (!$produk) {
+            abort(404);
+        }
+
+        return view('produk.show', compact('produk'));
     }
 }
