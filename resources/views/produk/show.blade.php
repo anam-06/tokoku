@@ -1,3 +1,7 @@
+@extends ('layouts.app')
+@section ('judul', 'Produk')
+
+@section('konten')
 <h1>{{ $produk['nama'] }}</h1>
 
 <p>
@@ -5,3 +9,4 @@
 </p>
 
 <p>{{ $produk['deskripsi'] }}</p>
+@endsection

@@ -14,15 +14,15 @@ class ProdukController extends Controller
         return view('produk.index', compact('produk'));
     }
 
-    public function show($id)
-    {
-        $produk = collect(ProdukData::semua())
-            ->firstWhere('id', $id);
+     public function show(int $id)
+{
+    $produk = ProdukData::produkById($id);
 
-        if (!$produk) {
-            abort(404);
-        }
-
-        return view('produk.show', compact('produk'));
+    if (!$produk) {
+        abort(404);
     }
+
+    return view('produk.show', compact('produk'));
+}
+    
 }

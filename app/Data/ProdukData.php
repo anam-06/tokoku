@@ -18,10 +18,21 @@ class ProdukData
         ];
     }
 
-         public static function unggulan()
+        public static function unggulan(): array
+{
+    return array_filter(self::semua(), function ($produk) {
+        return $produk['unggulan'] === true;
+    });
+}
+
+         public static function produkById(int $id): ? array
     {
-        return array_filter(self::semua(), function ($produk) {
-            return $produk['unggulan'] == true;
-        });
+        // looping array di dalam loopingnya baru di samakan 
+        foreach (self::semua() as $produk) {
+            if ($produk['id'] === $id) {
+                return $produk;
+            }
+        }
+        return null;
     }
 }
